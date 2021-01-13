@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все пользователи</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="/">
+            <div class="contianer">
+                <div class="logo"><img src="svg/logo.svg" alt=""></div>
+            </div>
+        </a>
+    </header>
+    <div class="container" id="container">
+        <h1 class="title"></h1>
+        <span class="error-holder" id="error-holder"></span>
+        <div class="content">
+            <ul class="users-list" id="users-list">
+                <!-- <li class="user">
+                    <form method="POST" class="users-form">
+                        <input type="text" name="name" id="name" placeholder="Имя пользователя">
+                        <input type="text" name="login" id="login" placeholder="Телефон или email">
+                        <input type="text" name="password" id="password" placeholder="Пароль">
+                        <div class="checkboxes user-checkboxes">
+                            <input type="radio" name="gender" id="female-check" value="female">
+                            <label for="female-check">Женский</label>
+                            <input type="radio" name="gender" id="men-check" value="male">
+                            <label for="men-check">Мужской</label>
+                        </div>
+                        <a href="" class="save-btn"><img src="svg/save.svg" alt=""></a>
+                    </form>
+                </li> -->
+            </ul>
+        </div>
+        <div class="users-buttons">
+            <div class="main-btn users-btn">
+                <button class="add-btn" id="add-btn">+ Добавить</button>
+                <button id="button" type="button" onclick="document.location='/'">На главную</button>
+            </div>
+        </div>
+        
+    </div>
+
+    </div>
+    <footer>
+        <div class="footer-label">Copyright &copy;<span>Maizer</span></div>
+        <div class="footer-label">Designed by:<span> Rustem G.</span></div>
+    </footer>
+    <script src="scripts/users.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maizer</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="/">
+            <div class="contianer">
+                <div class="logo"><img src="svg/logo.svg" alt=""></div>
+            </div>
+        </a>
+    </header>
+    <div class="intro-content">
+        <div class="container">
+            <form method="POST" id="form">
+                <div class="form-content">
+                    <h1>Вход в личный кабинет</h1>
+                    <span class="error-holder"></span>
+                    <div class="login-fields">
+                        <input type="text" name="login" id="login" placeholder="Телефон или email">
+                        <input type="password" name="password" id="password" placeholder="Пароль">
+                    </div>
+                    <div class="reg-btn">
+                        <button type="button" id="button">Войти</button>
+                    </div>
+                    <div class="note">
+                        <span>Впервые на Maizer?</span> <a href="/reg">Зарегистрироваться</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-label">Copyright &copy;<span>Maizer</span></div>
+        <div class="footer-label">Designed by:<span> Rustem G.</span></div>
+    </footer>
+    <script src="scripts/login.js"></script>
+</body>
+</html>
