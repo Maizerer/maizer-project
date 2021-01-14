@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     const container = document.getElementById('users-list')
     const title = document.querySelector('.title')
     const errorHolder = document.getElementById('error-holder')
+    const buttons = document.querySelector('.users-btn')
     let html = ''
     let superUserButtons = ''
     function getData(){
@@ -75,6 +76,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
                         </li> 
                         `
                     } 
+                    buttons.innerHTML = `
+                    <button class="add-btn" id="add-btn">+ Добавить</button>
+                    <button id="main-btn" type="button" onclick="document.location='/'">На главную</button>
+                    `
                 // Рендер страницы для обычного пользователя
                 }else{
                     if (element.superUser){
@@ -107,6 +112,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
                         
                         `
                     } 
+                    buttons.innerHTML = `
+                    <button id="main-btn" type="button" onclick="document.location='/'">На главную</button>
+                    `
                 } 
             })
             container.innerHTML = html
