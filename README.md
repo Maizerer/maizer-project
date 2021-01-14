@@ -1,5 +1,7 @@
 # maizer-project
 
+[https://maizer.herokuapp.com/](https://maizer.herokuapp.com/)
+
 ## Application functionality
 + registration and authorization with JsonWebToken
 + Access to the list of users only for authorized users
