@@ -22,7 +22,7 @@ const schema = new Schema({
     },
     date: {
         type: String,
-        default: Date.now()
+        default: 'Не определена'
     }
 })
 

@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
             name,
             login,
             password,
-            gender
+            gender,
+            date: Date.now()
         })
         if (name === ''){
             errorHolder.innerHTML = 'Введите имя'

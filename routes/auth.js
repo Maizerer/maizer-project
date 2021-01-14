@@ -29,6 +29,7 @@ router.post('/api/reg', async (req,res) => {
             login: req.body.login,
             password: bcrypt.hashSync(password, salt), 
             gender: req.body.gender,
+            date: req.body.date,
             superUser
         })
         await user.save()
