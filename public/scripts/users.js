@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     }
     renderUsers()
     .then(()=> {
-        const bins = container.querySelectorAll('#bin')
+        const bins = container.querySelectorAll('.bin')
         bins.forEach(element => {
             element.addEventListener('click', e => {
                 e.preventDefault()
@@ -208,7 +208,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
             name,
             login,
             password,
-            gender
+            gender,
+            date: Date.now()
         })
         console.log(body)
         let xhr = new XMLHttpRequest()
