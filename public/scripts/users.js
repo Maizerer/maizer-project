@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     const buttons = document.querySelector('.users-btn')
     let html = ''
     let superUserButtons = ''
+    let addButton = ''
     function getData(){
         return new Promise((resolve, reject)=>{
             let xhr = new XMLHttpRequest();
@@ -80,6 +81,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
                     <button class="add-btn" id="add-btn">+ Добавить</button>
                     <button id="main-btn" type="button" onclick="document.location='/'">На главную</button>
                     `
+                    addButton = document.getElementById('add-btn')
+                    addButton.addEventListener('click', e => renderUserForm(e))
                 // Рендер страницы для обычного пользователя
                 }else{
                     if (element.superUser){
@@ -119,7 +122,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
             })
             container.innerHTML = html
             superUserButtons = document.querySelectorAll('.super-user')
-            console.log(superUserButtons);
             superUserButtons.forEach(element => {
                 element.addEventListener('click', e=> setSuper(e))
             })
@@ -157,7 +159,6 @@ document.addEventListener('DOMContentLoaded', ()=> {
     }
     let saveButton = ''
     let form = ''
-    const addButton = document.getElementById('add-btn')
 
     function renderUserForm(event){
         addButton.disabled = true
@@ -194,7 +195,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         })
 
     }
-    addButton.addEventListener('click', e => renderUserForm(e))
+    
 
     function createUser (event){
         const menCheckBox = form.querySelector('#men-check')
