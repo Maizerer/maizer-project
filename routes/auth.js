@@ -53,11 +53,11 @@ router.post('/api/login', async (req,res) => {
                 id: uuid(),
                 type: 'refresh'
             },keys.jwt, {expiresIn: 2592000})
+            const ans = User.findOneAndUpdate({ login: req.body.login},{ fingerPrint: refreshToken}, function(err){ if(err) {throw err}})
             res.cookie('jwt', token, {
                 httpOnly: true
             })
             res.status(200).json({
-                token: `Bearer ${token}`,
                 refreshToken
             })
         }else{
@@ -91,5 +91,17 @@ router.get('/api/logout', (req,res) => {
     res.redirect('/')
 }) 
 
+router.post('/api/auth/refresh-token', function(req, res, next) {
+    passport.authenticate('jwt',async function(err, user, info) {
+        if (err) { return next(err); }
+        if (!user){
+            const token = req.body.refreshToken
+            const decoded = jwt.verify(token, keys.jwt);
+            console.log(decoded)
+        }else{
+            res.status(200).json()
+        }
+    })(req, res, next)
+}) 
 
 module.exports = router
