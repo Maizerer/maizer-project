@@ -23,6 +23,10 @@ const schema = new Schema({
     date: {
         type: String,
         default: 'Не определена'
+    },
+    fingerPrint: {
+        type: String,
+        default: ""
     }
 })
 
