@@ -1,14 +1,14 @@
 const {Router} = require('express')
 const jwt = require('jsonwebtoken')
+const jwt_decode = require('jwt-decode');
 const { v4: uuid } = require('uuid');
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const User = require('../models/User')
 const keys = require('../config/keys')
+
+
 const router = Router()
-
-
-
 
 router.post('/api/reg', async (req,res) => {
     const candidate = await User.findOne({ login: req.body.login})
@@ -56,7 +56,10 @@ router.post('/api/login', async (req,res) => {
             const ans = User.findOneAndUpdate({ login: req.body.login},{ fingerPrint: refreshToken}, function(err){ if(err) {throw err}})
             res.cookie('jwt', token, {
                 httpOnly: true,
-                SameSite : "Strict"
+                sameSite : "Strict"
+            })
+            res.cookie('expin', jwt_decode(token).exp*1000, {
+                sameSite : "Strict"
             })
             res.status(200).json({
                 refreshToken
@@ -89,6 +92,7 @@ router.get('/api/auth', passport.authenticate('jwt', {session:false, failureRedi
 
 router.get('/api/logout', (req,res) => {
     res.clearCookie('jwt')
+    res.clearCookie('expin')
     res.redirect('/')
 }) 
 

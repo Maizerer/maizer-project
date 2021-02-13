@@ -1,3 +1,4 @@
+import {refreshToken} from './common_scripts.js';
 document.addEventListener('DOMContentLoaded', ()=> {
 
     const container = document.getElementById('users-list')
@@ -129,7 +130,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
             title.innerHTML = `<h2>Упс..что-то пошло не так</h2>`
         }
     }
-    renderUsers()
+    refreshToken()
+    .then(renderUsers()
     .then(()=> {
         const bins = container.querySelectorAll('.bin')
         bins.forEach(element => {
@@ -138,7 +140,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
                 deleteUser(e)
             })
         });
-    })
+    }))
+    
     function deleteUser(event){
         const user = event.target.closest('.user')
         let login = user.querySelector('.user-login').innerHTML

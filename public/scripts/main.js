@@ -1,3 +1,5 @@
+import {refreshToken} from './common_scripts.js';
+
 document.addEventListener('DOMContentLoaded', ()=> {
 
     const content = document.getElementById('note')
@@ -43,28 +45,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
             `
         }
     }
-    renderContent()
-    function refreshToken(){
-        let refreshToken = localStorage.getItem('refreshToken')
-        console.log(refreshToken)
-        body = JSON.stringify({
-            refreshToken
-        })
-        let xhr = new XMLHttpRequest();
-            xhr.open('POST', '/api/auth/refresh-token' , true)
-            xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
-            xhr.send(body);
-            xhr.onload = () => {
-                if (xhr.status != 200) {
-                    errorHolder.innerHTML = JSON.parse(xhr.response).message
-                } else {
-                    //Сохраняем токен
-                    const refreshToken = JSON.parse(xhr.response).refreshToken
-                    localStorage.setItem('refreshToken', refreshToken);
-                    document.location.href = '/'
-                }
-              }
-    }
-    refreshToken()
+    refreshToken().then(renderContent)
+    
     
 })
