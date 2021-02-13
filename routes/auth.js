@@ -55,7 +55,8 @@ router.post('/api/login', async (req,res) => {
             },keys.jwt, {expiresIn: 2592000})
             const ans = User.findOneAndUpdate({ login: req.body.login},{ fingerPrint: refreshToken}, function(err){ if(err) {throw err}})
             res.cookie('jwt', token, {
-                httpOnly: true
+                httpOnly: true,
+                SameSite : "Strict"
             })
             res.status(200).json({
                 refreshToken
