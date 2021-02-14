@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         if (Array.isArray(users)){ 
             title.innerHTML = 'Все пользователи'
             users.forEach(element => {
-                date = new Date(+element.date)
+                const date = new Date(+element.date)
                 let gender = 'Неизвестен'
                 if (element.gender === 'm'){
                     gender = 'Мужской'
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         }
     }
     refreshToken()
-    .then(renderUsers()
+    .then(renderUsers)
     .then(()=> {
         const bins = container.querySelectorAll('.bin')
         bins.forEach(element => {
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
                 deleteUser(e)
             })
         });
-    }))
+    })
     
     function deleteUser(event){
         const user = event.target.closest('.user')
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         const cancelButton = document.getElementById('cancel-btn')
         cancelButton.addEventListener('click', e => {
             e.preventDefault()
-            userElem = e.target.closest('.user')
+            const userElem = e.target.closest('.user')
             userElem.remove()
             addButton.disabled = false
         })

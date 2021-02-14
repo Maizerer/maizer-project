@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
         let login = form.querySelector('#login').value
         let password = form.querySelector('#password').value
-        body = JSON.stringify({
+        const body = JSON.stringify({
             login,
             password,
         })
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         }
     }
     function sendForm (e) {
-        body = validForm()
+        const body = validForm()
         if(body){
             let xhr = new XMLHttpRequest();
             xhr.open('POST', '/api/login' , true)
